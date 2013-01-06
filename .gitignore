@@ -16,3 +16,6 @@
 
 # RVM config
 .rvmrc
+
+# Rspec logger formatting settings
+.rspec
