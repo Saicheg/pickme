@@ -64,5 +64,10 @@ module Pickme
 
     # Set mongoid logging level to debug
     Mongoid.logger.level = Logger::DEBUG
+
+    # Generate factory for each model automatically
+    config.generators do |g|
+      g.fixture_replacement :factory_girl
+    end
   end
 end
