@@ -5,7 +5,9 @@ gem 'rails', '3.2.10'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# MongoDB ORM
 gem 'mongoid', '~> 3.0.0'
+gem 'bson_ext'
 
 # Gems used only for assets and not required
 # in production environments by default.
