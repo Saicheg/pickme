@@ -69,5 +69,8 @@ module Pickme
     config.generators do |g|
       g.fixture_replacement :factory_girl
     end
+
+    # Generate sass instead of scss
+    config.sass.preferred_syntax = :sass
   end
 end
