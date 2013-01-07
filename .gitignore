@@ -19,3 +19,6 @@
 
 # Rspec logger formatting settings
 .rspec
+
+# Uploads
+public/uploads
