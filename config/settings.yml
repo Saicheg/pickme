@@ -1,11 +1,11 @@
-development: &dev
-  api_secret: doXOuNTm95VqsX54OnmO
+:development: &dev
+  :api_secret: doXOuNTm95VqsX54OnmO
 
-test:
+:test:
   <<: *dev
 
-staging:
+:staging:
   <<: *dev
 
-production:
+:production:
   <<: *dev
