@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   # TODO: fetch other info
   def create_user
-    user = User.create(vk_id: params[:viewer_id])
+    user = User.create(Vk::UserFetcher.new(params).user_info)
     session[:user] = user.id
     user
   end
