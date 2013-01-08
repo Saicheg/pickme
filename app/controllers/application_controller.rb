@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def auth_key_valid?
     key_string = "#{params[:api_id]}_#{params[:viewer_id]}_#{Settings[:api_secret]}"
     params[:auth_key] == Digest::MD5.hexdigest(key_string)

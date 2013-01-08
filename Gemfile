@@ -15,6 +15,9 @@ gem 'slim'
 # Uploader utility
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
+# Vkontakte API access
+gem 'vkontakte_api', '~> 1.1'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
