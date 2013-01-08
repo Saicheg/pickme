@@ -3,6 +3,7 @@ class User
 
   mount_uploader :photo, PhotoUploader
 
+  field :vk_id, type: Integer
   field :email, type: String
-  field :name, type: String
+  field :name,  type: String
 end
