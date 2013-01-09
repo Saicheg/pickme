@@ -2,6 +2,8 @@ Pickme::Application.routes.draw do
 
   root to: 'pages#home'
 
+  resources :user
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
