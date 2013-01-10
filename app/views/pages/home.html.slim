@@ -1,1 +1,5 @@
-| HOME
+#home
+  #note = t '.select_avatar', user_name: current_user.full_name
+  = simple_form_for current_user do |f|
+    = f.input :photo
+    = f.submit

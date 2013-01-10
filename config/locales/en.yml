@@ -8,3 +8,6 @@ en:
               inclusion: "Allowed values: male and female"
   error:
     auth_key: "Authentication key is not valid"
+  pages:
+    home:
+      select_avatar: "%{user_name} select avatar please"

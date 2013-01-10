@@ -18,4 +18,7 @@ class User
   validates :vk_id, uniqueness: true
   validates :sex, inclusion: {in: %w(male female)}
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
