@@ -1,3 +1,14 @@
 #user-profile
-  = @user.full_name
-  = image_tag @user.photo.normalized
+  .header
+    = t '.header'
+    = @user.full_name
+  .photo
+    = image_tag @user.photo.normalized
+  .rating
+  .info
+    = t '.info'
+  .balance
+    = t '.balance'
+  .actions
+    = link_to t('.play'), '#'
+    = link_to t('.top'), users_path

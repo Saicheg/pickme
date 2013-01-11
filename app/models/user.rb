@@ -12,6 +12,7 @@ class User
   field :bdate,       type: Date
   field :city,        type: String
   field :country,     type: String
+  field :rating,      type: Integer
 
   validates :vk_id, presence: true
 

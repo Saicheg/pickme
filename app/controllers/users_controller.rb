@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
   before_filter :init_user
 
-  def show
+  def index
+    @users = User.order_by(rating: :desc).limit(10)
+  end
 
+  def show
   end
 
   def update

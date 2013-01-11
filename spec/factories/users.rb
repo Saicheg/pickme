@@ -9,5 +9,6 @@ FactoryGirl.define do
     bdate { 10.years.ago - rand(10_000_000) }
     city { Faker::Address.city }
     country { Faker::Address.country }
+    rating { random 100 }
   end
 end
