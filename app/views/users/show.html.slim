@@ -1,9 +1,9 @@
 #user-profile
   .header
     = t '.header'
-    = @user.full_name
+    = current_user.full_name
   .photo
-    = image_tag @user.photo.normalized
+    = image_tag current_user.photo.normalized
   .rating
   .info
     = t '.info'

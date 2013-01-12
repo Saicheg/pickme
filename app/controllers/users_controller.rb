@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :init_user
+  before_filter :logged_in?
 
   def index
     @users = User.order_by(rating: :desc).limit(10)
@@ -9,13 +9,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update_attributes params[:user]
-
-    respond_with @user
+    current_user.update_attributes params[:user]
+    respond_with current_user
   end
 
-  private
-  def init_user
-    @user = current_user
-  end
 end

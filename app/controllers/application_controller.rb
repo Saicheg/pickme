@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?
 
-  before_filter :validate_auth_key
+ before_filter :validate_auth_key
+ before_filter :logged_in?
 
   def current_user
     @current_user ||= login_from_session || login_from_params
