@@ -3,6 +3,7 @@ Pickme::Application.routes.draw do
   root to: 'pages#intro'
 
   resources :users
+  resources :game, only: [:index, :update]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,5 +1,11 @@
 :development: &dev
   :api_secret: doXOuNTm95VqsX54OnmO
+  :multiplier:
+    :default: 1
+  :rating:
+    :start: 400
+    :win: 3
+    :lose: 1
 
 :test:
   <<: *dev

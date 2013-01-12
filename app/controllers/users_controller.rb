@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_filter :logged_in?
 
   def index
     @users = User.order_by(rating: :desc).limit(10)
