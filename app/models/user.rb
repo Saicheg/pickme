@@ -19,13 +19,18 @@ class User
   validates :vk_id, presence: true
 
   validates :vk_id, uniqueness: true
+
   validates :sex, inclusion: { in: %w(male female) }
 
   has_many :wins,  class_name: 'Pick', inverse_of: :winner
   has_many :loses, class_name: 'Pick', inverse_of: :loser
   has_many :plays, class_name: 'Pick', inverse_of: :player
 
+  has_one :setting
+
   scope :random, ->(num = 1) { User.skip(rand(0...User.count)).limit(num) }
+
+  after_create :create_setting
 
   def full_name
     "#{first_name} #{last_name}"
