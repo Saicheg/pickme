@@ -10,7 +10,10 @@ gem 'mongoid', '~> 3.0.0'
 gem 'bson_ext'
 
 # Templating engine
-gem 'slim'
+gem 'slim-rails'
+
+# Controller template
+gem 'inherited_resources'
 
 # Uploader utility
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
