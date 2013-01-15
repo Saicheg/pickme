@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def validate_auth_key
-    raise ActionController::RoutingError.new I18n.t('error.auth_key') unless signed_in? || auth_key_valid?
+    raise ActionController::RoutingError.new I18n.t('errors.auth_key') unless signed_in? || auth_key_valid?
   end
 
   private

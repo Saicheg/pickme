@@ -13,8 +13,9 @@ class User
   field :bdate,       type: Date
   field :city,        type: String
   field :country,     type: String
-  field :rating,      type: Integer
-  field :multiplier,  type: Integer
+
+  field :rating,      type: Float
+  field :multiplier,  type: Float
 
   validates :vk_id, presence: true
 
@@ -25,6 +26,8 @@ class User
   has_many :wins,  class_name: 'Pick', inverse_of: :winner
   has_many :loses, class_name: 'Pick', inverse_of: :loser
   has_many :plays, class_name: 'Pick', inverse_of: :player
+
+  has_many :boosts
 
   has_one :setting
 
