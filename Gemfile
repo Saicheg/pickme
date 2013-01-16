@@ -25,6 +25,12 @@ gem 'vkontakte_api', '~> 1.1'
 # Form helpers
 gem 'simple_form'
 
+# JSON responses
+gem 'jsonify-rails'
+
+# Abilities manager
+gem 'cancan'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

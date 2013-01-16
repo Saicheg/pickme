@@ -1,0 +1,4 @@
+json.success true
+json.noty do
+  json.success t('.success')
+end

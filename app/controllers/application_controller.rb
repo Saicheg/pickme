@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   before_filter :logged_in?
 
   def current_user
+    return User.first # FIXME inserted for debug matters
     @current_user ||= login_from_session || login_from_params
   end
 
