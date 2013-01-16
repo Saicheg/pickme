@@ -1,12 +1,12 @@
 class GameController < ApplicationController
 
   def index
-    @users = UserQueue.next_pair
+    @pairs = UserQueue.start_pairs
   end
 
   def update
-    Pick.create(user_id: params[:user_id],
-                opponent_id: params[:opponent_id],
+    Pick.create(winner_id: params[:winner_id],
+                loser_id: params[:looser_id],
                 player_id: current_user.id)
   end
 

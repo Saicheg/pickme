@@ -1,2 +1,7 @@
-- @users.each do |user|
-  = image_tag user.photo.try(:url, :normalized)
+.pairs-container
+  - @pairs.each_with_index do |users, i|
+    = render partial: 'pair', locals: {user1: users.first, user2: users.last, index: i}
+
+.select-container
+  button.left Left
+  button.right Right

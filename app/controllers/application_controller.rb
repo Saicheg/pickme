@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def signed_in?
     session[:user_id]
   end
