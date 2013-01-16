@@ -18,4 +18,8 @@ class Boost
   def discard!(object)
     raise NotImplementedError, I18n.t('errors.not_implemented', method: :discard!)
   end
+
+  def activate
+    update_attributes activated_at: Time.now
+  end
 end

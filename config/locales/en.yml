@@ -12,3 +12,10 @@ en:
   pages:
     home:
       select_avatar: "%{user_name} select avatar please"
+  boosts:
+    activate:
+      success: Boost was successfully activated!
+    pick_weight_multipliers:
+      pick_weight_multiplier:
+        title: Multiplier!
+        description: "Multiplies your vote's weight %{multiplier} times"
