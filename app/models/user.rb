@@ -14,8 +14,8 @@ class User
   field :city,        type: String
   field :country,     type: String
 
-  field :rating,      type: Float
-  field :multiplier,  type: Float
+  field :rating,      type: Float,   default: Settings[:rating][:start]
+  field :multiplier,  type: Float,   default: Settings[:multiplier][:default]
 
   validates :vk_id, presence: true
 
@@ -40,10 +40,10 @@ class User
   end
 
   def win!
-    self.update("$inc" => { rating: self.user.multiplier * Settings[:rating][:win]  })
+    self.inc(:rating, self.multiplier * Settings[:rating][:win])
   end
 
   def lose!
-    self.update("$dec" => { rating: self.user.multiplier * Settings[:rating][:lose]  })
+    self.inc(:rating, self.multiplier * Settings[:rating][:lose])
   end
 end

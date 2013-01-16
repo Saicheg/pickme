@@ -2,10 +2,12 @@
   :api_secret: doXOuNTm95VqsX54OnmO
   :multiplier:
     :default: 1
+  :game:
+    :start_pairs: 3
   :rating:
     :start: 400
     :win: 3
-    :lose: 1
+    :lose: -1
 
 :test:
   <<: *dev
