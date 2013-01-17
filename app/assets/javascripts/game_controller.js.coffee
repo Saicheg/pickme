@@ -10,10 +10,18 @@ $ ->
     pick: (e) =>
       e.preventDefault()
       return if @currentPair().is(":animated")
+      [winner, loser] = @detectUsers(e)
+      @postChoise({winner: winner, looser: loser})
       @userQueue.nextPair()
 
-    currentPair: => @userQueue.current
+    detectUsers: (event) =>
+      console.log(event)
+      [1,2]
 
+    postChoise: (data) =>
+      $.post
+
+    currentPair: => @userQueue.current
 
 
   class window.UserQueue
