@@ -1,15 +1,40 @@
 $ ->
-  # class window.GameController
-  #   contructor: ->
+
+  class window.GameController
+    constructor: ->
+      @userQueue = new UserQueue($('.pairs-container'))
+      @bindEvents()
+    bindEvents: =>
+      $('.right, .left').on 'click', @pick
+
+    pick: (e) =>
+      e.preventDefault()
+      return if @currentPair().is(":animated")
+      @userQueue.nextPair()
+
+    currentPair: => @userQueue.current
 
 
-  # class window.UserQueue
-  #   constructor: (queueContainer) =>
 
+  class window.UserQueue
+    constructor: (queueContainer) ->
+      @container = queueContainer
+      @pairs     = @container.find('.pair').toArray()
+      @current   = $(@pairs.pop())
+      @current.show()
 
-  #   removePair: (pair) =>
+    nextPair: =>
+      @old = @current
+      @current.fadeOut 300, =>
+        @current = $(@pairs.pop())
+        @current.fadeIn 300, =>
+          @addPair()
+          @old.remove()
 
-  #   nextPair: =>
+    addPair: =>
+      $.post Routes.pair_game_index_path(), (data) =>
+        pair = $(data)
+        @container.append(pair)
+        @pairs.unshift(pair)
 
-  #   requestPair: =>
-
+  window.gameController = new GameController()

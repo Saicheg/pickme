@@ -31,6 +31,9 @@ gem 'jsonify-rails'
 # Abilities manager
 gem 'cancan'
 
+# Routes in javascript
+gem 'js-routes', '~> 0.8.5'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

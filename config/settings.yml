@@ -3,7 +3,7 @@
   :multiplier:
     :default: 1
   :game:
-    :start_pairs: 3
+    :start_pairs: 4
   :rating:
     :start: 400
     :win: 3

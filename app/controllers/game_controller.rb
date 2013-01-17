@@ -10,4 +10,9 @@ class GameController < ApplicationController
                 player_id: current_user.id)
   end
 
+  def pair
+    user1, user2 = UserQueue.next_pair
+    render partial: 'pair', locals: {user1: user1, user2: user2}
+  end
+
 end

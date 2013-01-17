@@ -1,6 +1,6 @@
 .pairs-container
-  - @pairs.each_with_index do |users, i|
-    = render partial: 'pair', locals: {user1: users.first, user2: users.last, index: i}
+  - @pairs.each do |user1, user2|
+    = render partial: 'pair', locals: {user1: user1, user2: user2}
 
 .select-container
   button.left Left

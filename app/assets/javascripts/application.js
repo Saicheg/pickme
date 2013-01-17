@@ -16,4 +16,6 @@
 //= require_tree ./custom_plugins
 //= require init_application
 
+//= require js-routes
+
 //= require_tree .
