@@ -18,14 +18,10 @@ class ApplicationController < ActionController::Base
   end
 
   def validate_auth_key
-    raise ActionController::RoutingError.new I18n.t('errors.auth_key') unless signed_in? || auth_key_valid?
+    raise ActionController::RoutingError.new I18n.t('errors.auth_key') unless auth_key_valid?
   end
 
   private
-
-  def signed_in?
-    session[:user_id]
-  end
 
   def login_from_session
     User.find(session[:user_id]) if session[:user_id]
