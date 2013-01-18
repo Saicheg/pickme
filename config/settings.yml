@@ -1,7 +1,8 @@
 :development: &dev
   :api_secret: doXOuNTm95VqsX54OnmO
-  :url_secret_key: 6d08487f730835975c0eabb75cc898b2
-  :salt: b0b46ecd
+  :url:
+    :secret: 6d08487f730835975c0eabb75cc898b2
+    :salt: b0b46ecd
   :multiplier:
     :default: 1
   :game:

@@ -10,16 +10,13 @@ $ ->
     pick: (e) =>
       e.preventDefault()
       return if @currentPair().is(":animated")
-      [winner, loser] = @detectUsers(e)
-      @postChoise({winner: winner, looser: loser})
+      url = @detectUrl(e)
+      $.post(url) if url
       @userQueue.nextPair()
 
-    detectUsers: (event) =>
-      console.log(event)
-      [1,2]
-
-    postChoise: (data) =>
-      $.post
+    detectUrl: (event) =>
+      target = event.currentTarget
+      @currentPair().find(".#{target.className}").attr("href")
 
     currentPair: => @userQueue.current
 

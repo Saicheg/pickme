@@ -7,18 +7,30 @@ class << self
   DELIMETER = "-|-"
 
   def encode(*data)
-    Base64.urlsafe_encode64(algorithm.encrypt(data.join(DELIMETER)))
+    encrypted = algorithm.encrypt(with_salt(data).join(DELIMETER))
+    Base64.urlsafe_encode64(encrypted)
   end
 
-  # TODO: handle errors
   def decode(hash)
-    algorithm.decrypt(Base64.urlsafe_decode64(hash)).split(DELIMETER)
+    data = algorithm.decrypt(Base64.urlsafe_decode64(hash)).split(DELIMETER)
+    return nil unless data.include?(Settings[:url][:salt])
+    without_salt(data)
+  rescue ArgumentError
+    nil
   end
 
   private
 
   def algorithm
-    FastAES.new(Settings[:url_secret_key])
+    FastAES.new(Settings[:url][:secret])
+  end
+
+  def with_salt(data)
+    data << Settings[:url][:salt]
+  end
+
+  def without_salt(data)
+    data[0..-2]
   end
 
 end
