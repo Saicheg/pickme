@@ -5,7 +5,7 @@ $ ->
       @userQueue = new UserQueue($('.pairs-container'))
       @bindEvents()
     bindEvents: =>
-      $('.right, .left').on 'click', @pick
+      $('body').on 'click', '.left, .right', @pick
 
     pick: (e) =>
       e.preventDefault()
@@ -16,7 +16,7 @@ $ ->
 
     detectUrl: (event) =>
       target = event.currentTarget
-      @currentPair().find(".#{target.className}").attr("href")
+      @currentPair().find(".#{target.className}").data("link")
 
     currentPair: => @userQueue.current
 

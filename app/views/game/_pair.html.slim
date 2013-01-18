@@ -1,3 +1,3 @@
 .pair style='display:none;'
-  = link_to image_tag(user1.photo.try(:url, :normalized)), picks_path(uuid: UrlEncoder.encode(user1.id, user2.id)), class: 'left'
-  = link_to image_tag(user2.photo.try(:url, :normalized)), picks_path(uuid: UrlEncoder.encode(user2.id, user1.id)), class: 'right'
+  = image_tag(user1.photo.try(:url, :normalized), data: {link: picks_path(uuid: UrlEncoder.encode(user1.id, user2.id))}, class: 'left')
+  = image_tag(user2.photo.try(:url, :normalized), data: {link: picks_path(uuid: UrlEncoder.encode(user2.id, user1.id))}, class: 'right')
