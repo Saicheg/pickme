@@ -1,6 +1,12 @@
 Pickme::Application.routes.draw do
   root to: 'pages#intro'
 
+  resource :shop do
+    collection do
+      post :buy
+    end
+  end
+
   resources :users
   resources :game, only: [:index] do
     collection do

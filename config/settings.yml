@@ -11,6 +11,9 @@
     :start: 400
     :win: 3
     :lose: -1
+  :boosts:
+    :duration:
+      :pick_weight_multiplier: 60
 
 :test:
   <<: *dev

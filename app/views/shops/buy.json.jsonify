@@ -1,0 +1,8 @@
+json.success @success
+json.noty do
+  if @success
+    json.success t('.successfully_bought')
+  else
+    json.error t('.error_occurred')
+  end
+end

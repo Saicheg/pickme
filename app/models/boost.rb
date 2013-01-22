@@ -2,7 +2,6 @@ class Boost
   include Mongoid::Document
 
   field :activated_at,      type: DateTime
-  field :duration,          type: Integer
 
   field :name,             type: String
 
@@ -41,5 +40,13 @@ class Boost
 
   def partial_name
     self.class.to_s.demodulize.tableize.singularize
+  end
+
+  def duration
+    Settings[:boosts][:duration][:"#{partial_name}"].minutes
+  end
+
+  def subclasses
+    [Boosts::PickWeightMultiplier]
   end
 end
