@@ -1,0 +1,6 @@
+.title
+  = t "boosts.title.#{boost.partial_name}"
+.boost
+  = render partial: boost.partial_name, object: boost
+.actions
+  = render partial: boost.current_state, locals: { boost: boost }

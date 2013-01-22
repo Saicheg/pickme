@@ -22,4 +22,24 @@ class Boost
   def activate
     update_attributes activated_at: Time.now
   end
+
+  def inactive?
+    activated_at.blank?
+  end
+
+  def active?
+    activated_at.present? && !ended?
+  end
+
+  def ended?
+    activated_at + duration < Time.now if activated_at
+  end
+
+  def current_state
+    %w{inactive active ended}.select { |state| public_send "#{state}?" }.first
+  end
+
+  def partial_name
+    self.class.to_s.demodulize.tableize.singularize
+  end
 end
