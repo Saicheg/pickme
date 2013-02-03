@@ -65,6 +65,7 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails', '~> 2.0'
+  gem 'thin', '~> 1.5.0'
 
   gem 'pry'
 end
