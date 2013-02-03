@@ -9,6 +9,9 @@ gem 'rails', '3.2.11'
 gem 'mongoid', '~> 3.0.0'
 gem 'bson_ext'
 
+# Redis
+gem 'redis', '~> 3.0.2'
+
 # Templating engine
 gem 'slim-rails'
 
