@@ -16,7 +16,7 @@ class UrlEncoder
 
   def decode(hash)
     data = algorithm.decrypt(Base64.urlsafe_decode64(hash)).split(DELIMETER)
-    return nil unless salt.has?(data.last)
+    return nil unless salt.has?(data.last) && salt.remove(data.last)
     without_salt(data)
   rescue ArgumentError
     nil

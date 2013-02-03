@@ -14,9 +14,13 @@ class Salt
   end
 
   def has?(salt)
-    return false unless RedisClient.sismember(key, salt)
+    RedisClient.sismember(key, salt)
+  end
+
+  def remove(salt)
     RedisClient.srem(key, salt)
   end
+
 
   private
 
