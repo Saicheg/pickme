@@ -2,9 +2,12 @@ require 'fast-aes'
 require 'base64'
 
 class UrlEncoder
-class << self
 
   DELIMETER = "-|-"
+
+  def initialize(user)
+    @user = user
+  end
 
   def encode(*data)
     encrypted = algorithm.encrypt(with_salt(data).join(DELIMETER))
@@ -13,7 +16,7 @@ class << self
 
   def decode(hash)
     data = algorithm.decrypt(Base64.urlsafe_decode64(hash)).split(DELIMETER)
-    return nil unless data.include?(Settings[:url][:salt])
+    return nil unless salt.has?(data.last)
     without_salt(data)
   rescue ArgumentError
     nil
@@ -21,17 +24,20 @@ class << self
 
   private
 
+  def salt
+    @salt ||= Salt.new(@user)
+  end
+
   def algorithm
     FastAES.new(Settings[:url][:secret])
   end
 
   def with_salt(data)
-    data << Settings[:url][:salt]
+    data << salt.generate
   end
 
   def without_salt(data)
     data[0..-2]
   end
 
-end
 end

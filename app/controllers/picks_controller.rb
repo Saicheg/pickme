@@ -11,7 +11,7 @@ class PicksController < ApplicationController
   private
 
   def decode_params
-    @winner_id, @loser_id = UrlEncoder.decode(params[:uuid])
+    @winner_id, @loser_id = UrlEncoder.new(current_user).decode(params[:uuid])
     raise ActiveRecord::RecordNotFound unless @winner_id || @loser_id
   end
 end
