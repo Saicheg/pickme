@@ -1,6 +1,6 @@
 .pairs-container
-  - @pairs.each do |user1, user2|
-    = render partial: 'pair', locals: {user1: user1, user2: user2, url_encoder: @url_encoder}
+  - @pairs.each do |user_left, user_right|
+    = render partial: 'pair', locals: {user_left: user_left, user_right: user_right, url_encoder: @url_encoder}
 
 .select-container
   button.left Left

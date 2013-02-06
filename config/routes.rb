@@ -10,7 +10,7 @@ Pickme::Application.routes.draw do
   resources :users
   resources :game, only: [:index] do
     collection do
-      post :pair
+      get :pair
     end
   end
 

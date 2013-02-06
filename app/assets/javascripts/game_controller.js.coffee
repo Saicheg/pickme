@@ -37,8 +37,8 @@ $ ->
           @old.remove()
 
     addPair: =>
-      $.post Routes.pair_game_index_path(), (data) =>
-        pair = $(data)
+      $.getJSON Routes.pair_game_index_path(), (json) =>
+        pair = $(HoganTemplates['game/pair'].render(json))
         @container.append(pair)
         @pairs.unshift(pair)
 

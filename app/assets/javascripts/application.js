@@ -17,5 +17,6 @@
 //= require init_application
 
 //= require js-routes
+//= require hogan.js
 
 //= require_tree .

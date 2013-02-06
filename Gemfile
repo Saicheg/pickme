@@ -40,11 +40,15 @@ gem 'js-routes', '~> 0.8.5'
 # Encryption tool
 gem 'fast-aes', '~> 0.1.1'
 
+# Back-end template language
+# gem 'handlebars-rails', '~> 0.2.0'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'hogan_assets', '~> 1.4.0'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -74,7 +78,7 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
-# gem 'jbuilder'
+gem 'jbuilder', '~> 1.0.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'

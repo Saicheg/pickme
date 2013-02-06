@@ -7,8 +7,13 @@ class GameController < ApplicationController
   end
 
   def pair
-    user1, user2 = UserQueue.next_pair
-    render partial: 'pair', locals: {user1: user1, user2: user2, url_encoder: url_encoder}
+    @user_left, @user_right = UserQueue.next_pair
+    respond_to do |format|
+      format.json
+      format.html do
+        render partial: 'pair', locals: {user_left: @user_left, user_right: @user_right, url_encoder: @url_encoder}
+      end
+    end
   end
 
   private
